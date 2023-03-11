@@ -12,11 +12,16 @@ import Auth0
 protocol WeatherNetworkProvider {
     func login()
     func logout()
+    func getForecast() -> AnyPublisher<Forecast, Error>
 }
 
 class WeatherNetworkClient: WeatherNetworkProvider {
     var apiClient: NetworkProvider = NetworkClient.instance
     var userManger: UserManager = UserManager.shared
+
+    func getForecast() -> AnyPublisher<Forecast, Error> {
+        apiClient.request(WeatherNetworkRouter.forecast).decode()
+    }
 
     func login() {
         Auth0
@@ -45,13 +50,14 @@ class WeatherNetworkClient: WeatherNetworkProvider {
             }
 
     }
+
 }
 
 enum WeatherNetworkRouter: RequestInfoConvertible {
-    case photos
+    case forecast
 
     var endpoint: String {
-        "https://api.pexels.com/v1"
+        "http://api.openweathermap.org/data/2.5"
     }
 
     var urlString: String {
@@ -60,14 +66,17 @@ enum WeatherNetworkRouter: RequestInfoConvertible {
 
     var path: String {
         switch self {
-        case .photos:
-            return "curated"
+        case .forecast:
+            return "forecast?q="
         }
     }
 
     func asRequestInfo() -> RequestInfo {
-        let requestInfo: RequestInfo = RequestInfo(url: urlString,
-                                                   headers: ["Authorization": "ZHhzFzs6fqaNfv5tga0ZlykLJloX1PLHcM4iS9IMOLx95pfZuIpgnEoF"])
+        var newUrlString = urlString
+        if let searchCity = UserDefaults.standard.object(forKey: "searchCity") as? String {
+            newUrlString = urlString + searchCity + "&cnt=5&appid=bf701fb2157e9ae467c78109113b86ce"
+        }
+        let requestInfo: RequestInfo = RequestInfo(url: newUrlString)
         return requestInfo
     }
 }
