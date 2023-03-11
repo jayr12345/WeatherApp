@@ -7,13 +7,12 @@
 
 import SwiftUI
 
-struct WeatherView: View{
-    var body: some View{
-        ZStack{
+struct WeatherView: View {
+    var body: some View {
+        ZStack {
             Rectangle()
                 .foregroundColor(.yellow)
             Text("Weather View")
         }
     }
 }
-

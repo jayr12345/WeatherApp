@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct HomeView: View{
-    var body: some View{
-        ZStack{
+struct HomeView: View {
+    var body: some View {
+        ZStack {
             Rectangle()
                 .foregroundColor(.yellow)
             Text("Home View")

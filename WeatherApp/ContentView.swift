@@ -9,10 +9,12 @@ import SwiftUI
 
 struct ContentView: View {
     @State var tabIndex = 0
-    
+    @StateObject var usermanager = UserManager.shared
+    @StateObject var viewModel = LandingViewModel()
+
     var body: some View {
         NavigationView {
-            VStack{
+            VStack {
                 ZStack {
                     HStack {
                         Spacer()
@@ -25,19 +27,19 @@ struct ContentView: View {
                     HStack {
                         Spacer()
                         Button("Logout") {
-                            
-                        }
+                            viewModel.logout()
+                        }.disabled(usermanager.user == nil ? true : false)
                     }
-                    
+
                 }
-                
-                
+
                 TopTabBar(tabIndex: $tabIndex)
                 if tabIndex == 0 {
                     LandingView()
-                }
-                else {
+                } else if tabIndex == 1 {
                     HomeView()
+                } else {
+                    WeatherView()
                 }
                 Spacer()
             }
@@ -45,7 +47,7 @@ struct ContentView: View {
             .padding(.horizontal, 12)
             .navigationBarHidden(true)
         }
-        
+
     }
 }
 

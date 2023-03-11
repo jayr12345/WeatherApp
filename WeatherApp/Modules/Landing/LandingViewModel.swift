@@ -6,3 +6,15 @@
 //
 
 import Foundation
+
+class LandingViewModel: ObservableObject {
+    var networkClient: WeatherNetworkProvider = WeatherNetworkClient()
+
+    func login() {
+        networkClient.login()
+    }
+
+    func logout() {
+        networkClient.logout()
+    }
+}

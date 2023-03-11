@@ -14,7 +14,6 @@ extension View {
     }
 }
 
-
 struct EdgeBorder: Shape {
     var width: CGFloat
     var edges: [Edge]
@@ -22,34 +21,34 @@ struct EdgeBorder: Shape {
     func path(in rect: CGRect) -> Path {
         var path = Path()
         for edge in edges {
-            var x: CGFloat {
+            var xLocation: CGFloat {
                 switch edge {
                 case .top, .bottom, .leading: return rect.minX
                 case .trailing: return rect.maxX - width
                 }
             }
 
-            var y: CGFloat {
+            var yLocation: CGFloat {
                 switch edge {
                 case .top, .leading, .trailing: return rect.minY
                 case .bottom: return rect.maxY - width
                 }
             }
 
-            var w: CGFloat {
+            var oWidth: CGFloat {
                 switch edge {
                 case .top, .bottom: return rect.width
                 case .leading, .trailing: return width
                 }
             }
 
-            var h: CGFloat {
+            var oHeight: CGFloat {
                 switch edge {
                 case .top, .bottom: return width
                 case .leading, .trailing: return rect.height
                 }
             }
-            path.addRect(CGRect(x: x, y: y, width: w, height: h))
+            path.addRect(CGRect(x: xLocation, y: yLocation, width: oWidth, height: oHeight))
         }
         return path
     }
