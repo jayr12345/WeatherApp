@@ -12,6 +12,8 @@ struct User: Codable {
     let id: String
     let email: String
     let picture: String
+    let name: String
+    let nickname: String
 }
 
 extension User {
@@ -19,10 +21,14 @@ extension User {
         guard let jwt = try? decode(jwt: idToken),
               let id = jwt.subject,
               let email = jwt["email"].string,
-              let picture = jwt["picture"].string
+              let picture = jwt["picture"].string,
+              let name = jwt["name"].string,
+              let nickname = jwt["nickname"].string
         else { return nil }
         self.id = id
         self.email = email
         self.picture = picture
+        self.name = name
+        self.nickname = nickname
     }
 }

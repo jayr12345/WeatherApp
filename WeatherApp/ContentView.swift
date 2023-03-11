@@ -33,13 +33,14 @@ struct ContentView: View {
 
                 }
 
-                TopTabBar(tabIndex: $tabIndex)
+                let topBar = TopTabBar(tabIndex: $tabIndex)
+                topBar
                 if tabIndex == 0 {
-                    LandingView()
+                    LandingView(topTabBar: topBar)
                 } else if tabIndex == 1 {
-                    HomeView()
+                    HomeView(topTabBar: topBar)
                 } else {
-                    WeatherView()
+                    WeatherView(topTabBar: topBar)
                 }
                 Spacer()
             }

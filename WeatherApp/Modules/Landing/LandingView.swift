@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LandingView: View {
+    var topTabBar: TopTabBar
     @StateObject var viewModel = LandingViewModel()
     @StateObject var usermanager = UserManager.shared
 
