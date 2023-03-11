@@ -11,6 +11,7 @@ struct HomeView: View {
     var topTabBar: TopTabBar
     @Environment(\.openURL) var openURL
     @StateObject var usermanager = UserManager.shared
+    @StateObject var viewModel = WeatherViewModel()
     @State var cityInput = ""
 
     var body: some View {
@@ -36,6 +37,7 @@ struct HomeView: View {
             .padding(.top, 10)
             .overlay(RoundedRectangle(cornerRadius: 10).stroke(lineWidth: 2).foregroundColor(Color.black))
             Button(action: {
+                UserDefaults.standard.set(cityInput, forKey: "searchCity")
                 topTabBar.tabIndex = 2
                 }, label: {
                     Text("Display Weather")

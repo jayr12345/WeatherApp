@@ -8,7 +8,7 @@
 import Foundation
 import JWTDecode
 
-struct User: Codable {
+struct User: Codable, Identifiable {
     let id: String
     let email: String
     let picture: String
