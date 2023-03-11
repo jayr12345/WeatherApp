@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct WeatherView: View {
+    var topTabBar: TopTabBar
+    @StateObject var viewModel = HomeViewModel()
+
     var body: some View {
         ZStack {
             Rectangle()

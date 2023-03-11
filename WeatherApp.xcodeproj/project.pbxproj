@@ -31,6 +31,7 @@
 		17625E2C29BC19A1004CEEA9 /* View+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17625E2B29BC19A1004CEEA9 /* View+Utils.swift */; };
 		17625E2E29BC19F9004CEEA9 /* TopTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17625E2D29BC19F9004CEEA9 /* TopTabBar.swift */; };
 		1774749729BC5AEA00102138 /* .swiflint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 1774749629BC5AEA00102138 /* .swiflint.yml */; };
+		17ADD29629BCEAFD0035ED96 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17ADD29529BCEAFD0035ED96 /* WeatherViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		17625E2B29BC19A1004CEEA9 /* View+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Utils.swift"; sourceTree = "<group>"; };
 		17625E2D29BC19F9004CEEA9 /* TopTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTabBar.swift; sourceTree = "<group>"; };
 		1774749629BC5AEA00102138 /* .swiflint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiflint.yml; sourceTree = "<group>"; };
+		17ADD29529BCEAFD0035ED96 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				1733826929BC4CE7007FBC41 /* WeatherView.swift */,
+				17ADD29529BCEAFD0035ED96 /* WeatherViewModel.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 				17625E2E29BC19F9004CEEA9 /* TopTabBar.swift in Sources */,
 				17625DF029BC017C004CEEA9 /* ContentView.swift in Sources */,
 				17625E2529BC16E1004CEEA9 /* LandingView.swift in Sources */,
+				17ADD29629BCEAFD0035ED96 /* WeatherViewModel.swift in Sources */,
 				1733827929BC57FE007FBC41 /* UserManager.swift in Sources */,
 				17625E2729BC16EE004CEEA9 /* HomeView.swift in Sources */,
 				17625E2A29BC18CE004CEEA9 /* TabBarButton.swift in Sources */,
@@ -588,7 +592,6 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeatherApp/Info.plist;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -618,7 +621,6 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeatherApp/Info.plist;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
