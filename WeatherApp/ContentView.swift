@@ -8,14 +8,47 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var tabIndex = 0
+    @StateObject var usermanager = UserManager.shared
+    @StateObject var viewModel = LandingViewModel()
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationView {
+            VStack {
+                ZStack {
+                    HStack {
+                        Spacer()
+                        Text("Weather Forecast")
+                            .multilineTextAlignment(.center)
+                            .font(.system(size: 20).bold())
+                            .frame(width: 200, height: 24, alignment: .center)
+                        Spacer()
+                    }
+                    HStack {
+                        Spacer()
+                        Button("Logout") {
+                            viewModel.logout()
+                        }.disabled(usermanager.user == nil ? true : false)
+                    }
+
+                }
+
+                let topBar = TopTabBar(tabIndex: $tabIndex)
+                topBar
+                if tabIndex == 0 {
+                    LandingView(topTabBar: topBar)
+                } else if tabIndex == 1 {
+                    HomeView(topTabBar: topBar)
+                } else {
+                    WeatherView(topTabBar: topBar)
+                }
+                Spacer()
+            }
+            .frame(width: UIScreen.main.bounds.width - 24, alignment: .center)
+            .padding(.horizontal, 12)
+            .navigationBarHidden(true)
         }
-        .padding()
+
     }
 }
 
